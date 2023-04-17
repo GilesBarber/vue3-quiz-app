@@ -24,18 +24,13 @@ $h2-line-height: 2.625rem;
 
 $mobile: 800px;
 
-
+// mobile media query
 @mixin mobile{
 @media (max-width: $mobile){
 @content;
 }
 }
 
-// .main{
-// @include mobile{
-// flex-direction: column;
-// }
-// }
 
 *{
     margin: 0;
@@ -99,7 +94,6 @@ $mobile: 800px;
 .quiz-info .question{
   color: $bgColor;
   font-size: map-get($font-sizes, body-l);
-  // margin-top: 7px;
 }
 
 .quiz-info .score{
