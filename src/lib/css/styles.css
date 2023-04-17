@@ -30,6 +30,11 @@ h1 {
   flex-direction: row;
   justify-content: space-between;
 }
+@media (max-width: 800px) {
+  .flex {
+    flex-direction: column;
+  }
+}
 
 .quiz, .results {
   background-color: #453878;
@@ -46,6 +51,11 @@ h1 {
   align-items: center;
   margin-bottom: 1rem;
 }
+@media (max-width: 800px) {
+  .quiz-info {
+    flex-direction: column-reverse;
+  }
+}
 
 .quiz-info .question {
   color: #ededf5;
@@ -54,6 +64,11 @@ h1 {
 
 .quiz-info .score {
   font-size: 1.25rem;
+}
+@media (max-width: 800px) {
+  .quiz-info .score {
+    margin-bottom: 1.5rem;
+  }
 }
 
 .options {
@@ -115,6 +130,11 @@ button {
   font-size: 1.25rem;
   border-radius: 0.5rem;
 }
+@media (max-width: 800px) {
+  button {
+    margin-top: 1.5rem;
+  }
+}
 
 .option.disabled,
 button:disabled {
@@ -161,6 +181,11 @@ p {
   background-color: #ededf5;
   border: none;
   width: 67%;
+}
+@media (max-width: 800px) {
+  .results .score {
+    width: 100%;
+  }
 }
 .results p {
   color: #1fab7a;

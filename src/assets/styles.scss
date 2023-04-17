@@ -22,6 +22,21 @@ $font-sizes: (
 $shadow: 0px 3px 10px $non-black;
 $h2-line-height: 2.625rem;
 
+$mobile: 800px;
+
+
+@mixin mobile{
+@media (max-width: $mobile){
+@content;
+}
+}
+
+// .main{
+// @include mobile{
+// flex-direction: column;
+// }
+// }
+
 *{
     margin: 0;
     padding: 0;
@@ -54,6 +69,10 @@ $h2-line-height: 2.625rem;
     flex-direction: row;
     justify-content: space-between;
 
+    @include mobile{
+      flex-direction: column;
+      }
+
   }
   
   .quiz, .results{
@@ -71,6 +90,10 @@ $h2-line-height: 2.625rem;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
+
+  @include mobile{
+   flex-direction: column-reverse;
+    }
 }
 
 .quiz-info .question{
@@ -81,6 +104,10 @@ $h2-line-height: 2.625rem;
 
 .quiz-info .score{
   font-size: map-get($font-sizes, body-l);
+
+  @include mobile{
+    margin-bottom: 1.5rem;
+     }
 }
 
 .options{
@@ -143,6 +170,10 @@ button{
   font-size: 1.25rem;
   border-radius: 0.5rem;
 
+  @include mobile{
+    margin-top: 1.5rem;
+    }
+
 }
 
 .option.disabled,
@@ -191,6 +222,10 @@ p{
     background-color: $bgColor;
     border: none;
     width: 67%;
+
+    @include mobile{
+      width: 100%;
+      }
   }
   & p{
     color: $secondaryColor;
