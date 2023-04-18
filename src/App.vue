@@ -1,6 +1,8 @@
+<!-- Composition API -->
 <script setup>
 import {ref, computed} from 'vue'
 
+// Vue watches variables using 'ref()' and is able to react to any changes.
 const questions = ref([
   {
     question: 'Which is the best way to improve user engagement?',
@@ -13,22 +15,22 @@ const questions = ref([
     selected: null
   },
   {
-    question: 'How much fun is it working at Tui Media?',
+    question: 'Which is the correct answer?',
     answer: 2,
     options: [
-      'Not bad',
-      'Rather good',
-      'Off the charts!'
+      'No, this one.',
+      'Neither, its this one!',
+      'This one'
     ],
     selected: null
   },
   {
-    question: 'Give Giles the Dev job?',
+    question: 'Frontend Dev do it better?',
     answer: 1,
     options: [
       'You’re-aving-a-larf!',
       'Certainly',
-      'Keep him guessing for a couple of weeks :D'
+      'Backend devs for the win!'
     ],
     selected: null
   },
@@ -56,6 +58,9 @@ const questions = ref([
 
 const quizCompleted = ref(false)
 const currentQuestion = ref(0)
+
+// Will recalculate the computed property of 'questions' when 'ref()' detect changes in 'questions'.
+// Must use '.value' to read or write the value wrapped by a 'ref()'
 const score = computed(() => {
   let value = 0
   // compare option selected to answer value
@@ -99,6 +104,7 @@ const restart = () => window.location.reload()
 
   <section class="quiz" v-if="!quizCompleted">
     <div class="quiz-info">
+      <!-- Don't need to use '.value' in the template -->
       <span class="question">{{ getCurrentQuestion.question }}</span>
       <span class="score">Score {{ score }} / {{ questions.length }}</span>
     </div>
@@ -106,7 +112,7 @@ const restart = () => window.location.reload()
       <div class="options">
         <label v-for="(option, index) in getCurrentQuestion.options" 
         :key="index"
-        :class="`option ${ // possible improvement - move this logic to a method 
+        :class="`option ${ // possible improvement - move this logic to a function
           // if this option is selected and the index matches the answer  then add class 'correct', else add class 'incorrect', else add nowt.
           getCurrentQuestion.selected == index
           ? index == getCurrentQuestion.answer
