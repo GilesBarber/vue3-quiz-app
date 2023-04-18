@@ -25,7 +25,7 @@ const questions = ref([
     selected: null
   },
   {
-    question: 'Frontend Dev do it better?',
+    question: 'Frontend Devs do it better?',
     answer: 1,
     options: [
       'You’re-aving-a-larf!',
